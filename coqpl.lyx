@@ -1,0 +1,527 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass sigplanconf
+\begin_preamble
+% DO NOT ALTER THIS PREAMBLE!!!
+%
+% This preamble is designed to ensure that the file prints
+% out as advertised. If you mess with this preamble,
+% parts of this document may not print out as expected.  If you
+% have problems LaTeXing this file, please contact 
+% the documentation team
+% email: lyx-docs@lists.lyx.org
+
+\usepackage[all]{xy}
+
+% define new commands used in sec. 5.1
+\newcommand{\xyR}[1]{
+  \xydef@\xymatrixrowsep@{#1}}
+\newcommand{\xyC}[1]{
+  \xydef@\xymatrixcolsep@{#1}}
+
+\newdir{|>}{!/4.5pt/@{|}*:(1,-.2)@^{>}*:(1,+.2)@_{>}}
+
+% a pdf-bookmark for the TOC is added
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+  \pdfbookmark[1]{\contentsname}{}
+  \myTOC }
+
+% redefine the \LyX macro for PDF bookmarks
+\def\LyX{\texorpdfstring{%
+  L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+  {LyX}}
+
+% if pdflatex is used
+\usepackage{ifpdf}
+\ifpdf
+
+% set fonts for nicer pdf view
+\IfFileExists{lmodern.sty}
+ {\usepackage{lmodern}}{}
+
+\fi % end if pdflatex is used
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage{fullpage}
+
+\usepackage{coqdoc}
+\renewcommand{\coqdocind}[1]{\textsf{#1}}
+
+\usepackage{amsmath,amssymb}
+\usepackage{url}
+ \usepackage{hyperref}
+% \usepackage{makeidx,hyperref}
+\end_preamble
+\options natbib,nocopyrightspace
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding default
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command default
+\float_placement tbh
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "MACLANE PENTAGON IS SOME RECURSIVE SQUARE , NOW WHAT ?"
+\pdf_author "1337777.NET"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 2
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This is a template LyX file for articles to be submitted to the Special
+ Interest Group on Programming Languages  (SIGPLAN).
+ How to install the SIGPLAN LaTeX class to your LaTeX system is explained
+ in 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://wiki.lyx.org/Examples/AcmSigplan
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Conference
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+GCC 1337
+\end_layout
+
+\end_inset
+
+January 13--31, 1337, Burgpeters, Dariflo, UAS.
+\end_layout
+
+\begin_layout CopyrightYear
+1337
+\end_layout
+
+\begin_layout Copyrightdata
+1-59593-057-4/05/0004
+\end_layout
+
+\begin_layout Title
+MACLANE PENTAGON IS SOME RECURSIVE SQUARE , NOW WHAT ?
+\end_layout
+
+\begin_layout Author
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+1337777.NET
+\end_layout
+
+\end_inset
+
+ HTTPS://GITHUB.COM/1337777
+\end_layout
+
+\begin_layout Abstract
+This Coq text shows that Dosen semiassociative coherence covers Maclane
+ associative coherence by some recursive adjunction, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\text{embedding }:\ \text{SemiAssoc}\leftrightarrows\text{Assoc}\ :\text{ flattening reflection}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ Now what ?
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+category{F.4.1}{Mathematical Logic And Formal Languages}{Mechanical Theorem
+ Proving}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+
+\backslash
+category
+\series default
+ has 3 mandatory + 1 optional arguments
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Keywords
+Coq, Coherence, Comonadic descent, Automation
+\end_layout
+
+\begin_layout Section
+Contents
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "coqpl.v.tex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gross"
+
+\end_inset
+
+Jason Gross, Adam Chlipala, David I.
+ Spivak.
+ “Experience Implementing a Performant Category-Theory Library in Coq” In:
+ Interactive Theorem Proving.
+ Springer, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "chlipala"
+
+\end_inset
+
+Gregory Malecha, Adam Chlipala, Thomas Braibant.
+ “Compositional Computational Reflection” In: Interactive Theorem Proving.
+ Springer, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "chlipalafiat"
+
+\end_inset
+
+Benjamin Delaware, Clement Pit--Claudel, Jason Gross, Adam Chlipala.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Fiat: Deductive Synthesis of Abstract Data Types in a Proof Assistant
+\begin_inset Quotes erd
+\end_inset
+
+ In: Principles of Programming Languages.
+ ACM, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "chlipalaurweb"
+
+\end_inset
+
+Adam Chlipala.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Ur/Web: A Simple Model for Programming the Web
+\begin_inset Quotes erd
+\end_inset
+
+ In: Principles of Programming Languages.
+ ACM, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "1337777"
+
+\end_inset
+
+1337777.org.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+1337777.org
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/1337777/upo/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "harper"
+
+\end_inset
+
+Robert Harper.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Programming in Standard ML
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.cs.cmu.edu/~rwh/smlbook/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "chlipalacpdt"
+
+\end_inset
+
+Adam Chlipala.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Certified Programming with Dependent Types
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://adam.chlipala.net/cpdt/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "dosen"
+
+\end_inset
+
+Kosta Dosen, Zoran Petric.
+ “Proof-Theoretical Coherence” 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.mi.sanu.ac.rs/~kosta/coh.pdf
+\end_layout
+
+\end_inset
+
+ , 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "aigner"
+
+\end_inset
+
+Martin Aigner.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Combinatorial Theory
+\begin_inset Quotes erd
+\end_inset
+
+ Springer, 1997
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "borceuxjanelidze"
+
+\end_inset
+
+Francis Borceux, George Janelidze.
+ “Galois Theories” Cambridge University Press, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "borceux"
+
+\end_inset
+
+Francis Borceux.
+ “Handbook of categorical algebra.
+ Volumes 1 2 3” Cambridge University Press, 1994.
+\end_layout
+
+\end_body
+\end_document

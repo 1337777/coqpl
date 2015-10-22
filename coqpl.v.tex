@@ -1,0 +1,154 @@
+\begin{coqdoccode}
+\coqdocemptyline
+\end{coqdoccode}
+This recursive square \coqdocvar{normalize\_map\_assoc} is the ``functorial'' parallel to the normalization/flattening of binary trees; and is simply the unit of the reflection for the adjunction.
+\begin{coqdoccode}
+\coqdocemptyline
+\end{coqdoccode}
+\vspace{-.15in} \coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Inductive} \coqdocvar{same\_assoc} : \coqdockw{\ensuremath{\forall}} \coqdocvar{A} \coqdocvar{B} : \coqdocvar{objects}, \coqdocvar{arrows\_assoc} \coqdocvar{A} \coqdocvar{B} \ensuremath{\rightarrow} \coqdocvar{arrows\_assoc} \coqdocvar{A} \coqdocvar{B} \ensuremath{\rightarrow} \coqdockw{Set}\coqdoceol
+\coqdocindent{0.50em}
+:= \coqdocvar{same\_assoc\_refl} : \coqdockw{\ensuremath{\forall}} (\coqdocvar{A} \coqdocvar{B} : \coqdocvar{objects}) (\coqdocvar{f} : \coqdocvar{arrows\_assoc} \coqdocvar{A} \coqdocvar{B}), \coqdocvar{f} \ensuremath{\sim}\coqdocvar{a} \coqdocvar{f}\coqdoceol
+\coqdocindent{0.50em}
+\ensuremath{|} ...\coqdoceol
+\coqdocindent{0.50em}
+\ensuremath{|} \coqdocvar{same\_assoc\_bracket\_left\_5} : \coqdockw{\ensuremath{\forall}} \coqdocvar{A} \coqdocvar{B} \coqdocvar{C} \coqdocvar{D} : \coqdocvar{objects},\coqdoceol
+\coqdocindent{1.50em}
+\coqdocvar{bracket\_left\_assoc} (\coqdocvar{A} /\symbol{92}0 \coqdocvar{B}) \coqdocvar{C} \coqdocvar{D} <\coqdocvar{oa} \coqdocvar{bracket\_left\_assoc} \coqdocvar{A} \coqdocvar{B} (\coqdocvar{C} /\symbol{92}0 \coqdocvar{D}) \ensuremath{\sim}\coqdocvar{a}\coqdoceol
+\coqdocindent{1.50em}
+\coqdocvar{bracket\_left\_assoc} \coqdocvar{A} \coqdocvar{B} \coqdocvar{C} /\symbol{92}1\coqdocvar{a} \coqdocvar{unitt\_assoc} \coqdocvar{D} <\coqdocvar{oa} \coqdocvar{bracket\_left\_assoc} \coqdocvar{A} (\coqdocvar{B} /\symbol{92}0 \coqdocvar{C}) \coqdocvar{D} <\coqdocvar{oa}\coqdoceol
+\coqdocindent{1.50em}
+\coqdocvar{unitt\_assoc} \coqdocvar{A} /\symbol{92}1\coqdocvar{a} \coqdocvar{bracket\_left\_assoc} \coqdocvar{B} \coqdocvar{C} \coqdocvar{D}.
+
+\coqdocemptyline
+\begin{coqdoccode}
+\end{coqdoccode}
+\vspace{-.15in} \coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Inductive} \coqdocvar{normal} : \coqdocvar{objects} \ensuremath{\rightarrow} \coqdockw{Set} :=\coqdoceol
+\coqdocnoindent
+\coqdocvar{normal\_cons1} : \coqdockw{\ensuremath{\forall}} \coqdocvar{l} : \coqdocvar{letters}, \coqdocvar{normal} (\coqdocvar{letter} \coqdocvar{l})\coqdoceol
+\coqdocnoindent
+\ensuremath{|} \coqdocvar{normal\_cons2} : \coqdockw{\ensuremath{\forall}} (\coqdocvar{A} : \coqdocvar{objects}) (\coqdocvar{l} : \coqdocvar{letters}), \coqdocvar{normal} \coqdocvar{A} \ensuremath{\rightarrow} \coqdocvar{normal} (\coqdocvar{A} /\symbol{92}0 \coqdocvar{letter} \coqdocvar{l}).
+
+\coqdocemptyline
+\begin{coqdoccode}
+\end{coqdoccode}
+\vspace{-.15in} \coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Fixpoint} \coqdocvar{normalize\_aux} (\coqdocvar{Z} \coqdocvar{A} : \coqdocvar{objects}) \{\coqdockw{struct} \coqdocvar{A}\} : \coqdocvar{objects} :=\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{match} \coqdocvar{A} \coqdockw{with}\coqdoceol
+\coqdocindent{2.00em}
+\ensuremath{|} \coqdocvar{letter} \coqdocvar{l} \ensuremath{\Rightarrow} \coqdocvar{Z} /\symbol{92}0 \coqdocvar{letter} \coqdocvar{l}\coqdoceol
+\coqdocindent{2.00em}
+\ensuremath{|} \coqdocvar{A1} /\symbol{92}0 \coqdocvar{A2} \ensuremath{\Rightarrow} (\coqdocvar{Z} </\symbol{92}0 \coqdocvar{A1}) </\symbol{92}0 \coqdocvar{A2}\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{end}\coqdoceol
+\coqdocnoindent
+\coqdockw{where} "Z </\symbol{92}0 A" := (\coqdocvar{normalize\_aux} \coqdocvar{Z} \coqdocvar{A}).
+
+\coqdocemptyline
+\begin{coqdoccode}
+\end{coqdoccode}
+\vspace{-.15in} \coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Fixpoint} \coqdocvar{normalize} (\coqdocvar{A} : \coqdocvar{objects}) : \coqdocvar{objects} :=\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{match} \coqdocvar{A} \coqdockw{with}\coqdoceol
+\coqdocindent{2.00em}
+\ensuremath{|} \coqdocvar{letter} \coqdocvar{l} \ensuremath{\Rightarrow} \coqdocvar{letter} \coqdocvar{l}\coqdoceol
+\coqdocindent{2.00em}
+\ensuremath{|} \coqdocvar{A1} /\symbol{92}0 \coqdocvar{A2} \ensuremath{\Rightarrow} (\coqdocvar{normalize} \coqdocvar{A1}) </\symbol{92}0 \coqdocvar{A2}\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{end}.
+
+\coqdocemptyline
+\begin{coqdoccode}
+\end{coqdoccode}
+\vspace{-.15in} \coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Fixpoint} \coqdocvar{normalize\_aux\_unitrefl\_assoc} \coqdocvar{Y} \coqdocvar{Z} (\coqdocvar{y} : \coqdocvar{arrows\_assoc} \coqdocvar{Y} \coqdocvar{Z}) \coqdocvar{A} \coqdoceol
+\coqdocindent{0.50em}
+: \coqdocvar{arrows\_assoc} (\coqdocvar{Y} /\symbol{92}0 \coqdocvar{A}) (\coqdocvar{Z} </\symbol{92}0 \coqdocvar{A}) :=\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{match} \coqdocvar{A} \coqdockw{with}\coqdoceol
+\coqdocindent{2.00em}
+\ensuremath{|} \coqdocvar{letter} \coqdocvar{l} \ensuremath{\Rightarrow} \coqdocvar{y} /\symbol{92}1\coqdocvar{a} \coqdocvar{unitt\_assoc} (\coqdocvar{letter} \coqdocvar{l})\coqdoceol
+\coqdocindent{2.00em}
+\ensuremath{|} \coqdocvar{A1} /\symbol{92}0 \coqdocvar{A2} \ensuremath{\Rightarrow} ((\coqdocvar{y} </\symbol{92}1\coqdocvar{a} \coqdocvar{A1}) </\symbol{92}1\coqdocvar{a} \coqdocvar{A2}) <\coqdocvar{oa} \coqdocvar{bracket\_left\_assoc} \coqdocvar{Y} \coqdocvar{A1} \coqdocvar{A2}\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{end}\coqdoceol
+\coqdocnoindent
+\coqdockw{where} "y </\symbol{92}1a A" := (\coqdocvar{normalize\_aux\_unitrefl\_assoc} \coqdocvar{y} \coqdocvar{A}).
+
+\coqdocemptyline
+\begin{coqdoccode}
+\end{coqdoccode}
+\vspace{-.15in} \coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Fixpoint} \coqdocvar{normalize\_unitrefl\_assoc} (\coqdocvar{A} : \coqdocvar{objects}) : \coqdocvar{arrows\_assoc} \coqdocvar{A} (\coqdocvar{normalize} \coqdocvar{A}) :=\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{match} \coqdocvar{A} \coqdockw{with}\coqdoceol
+\coqdocindent{2.00em}
+\ensuremath{|} \coqdocvar{letter} \coqdocvar{l} \ensuremath{\Rightarrow} \coqdocvar{unitt\_assoc} (\coqdocvar{letter} \coqdocvar{l})\coqdoceol
+\coqdocindent{2.00em}
+\ensuremath{|} \coqdocvar{A1} /\symbol{92}0 \coqdocvar{A2} \ensuremath{\Rightarrow} (\coqdocvar{normalize\_unitrefl\_assoc} \coqdocvar{A1}) </\symbol{92}1\coqdocvar{a} \coqdocvar{A2}\coqdoceol
+\coqdocindent{1.00em}
+\coqdockw{end}.
+
+\coqdocemptyline
+\begin{coqdoccode}
+\coqdocnoindent
+\coqdockw{Check} \coqdoclemma{th151} : \coqdockw{\ensuremath{\forall}} \coqdocvar{A} : \coqdocinductive{objects}, \coqdocinductive{normal} \coqdocvariable{A} \ensuremath{\rightarrow} \coqdocdefinition{normalize} \coqdocvariable{A} \coqdocnotation{=} \coqdocvariable{A}.\coqdoceol
+\end{coqdoccode}
+Aborted th270 : for local variable \coqdocvar{A} with \coqdocvar{normal} \coqdocvar{A},
+although there is the propositional equality \coqdocvar{th151}: \coqdocvar{normalize} \coqdocvar{A} = \coqdocvar{A}, one gets 
+that \coqdocvar{normalize} \coqdocvar{A} and \coqdocvar{A} are not convertible (definitionally/meta equal);
+therefore one shall not regard \coqdocvar{normalize\_unitrefl\_assoc} \coqdocvar{A} and \coqdocvar{unitt} \coqdocvar{A} as sharing
+the same domain-codomain indices of \coqdocvar{arrows\_assoc}. \begin{coqdoccode}
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Check} \coqdoclemma{th260} : \coqdockw{\ensuremath{\forall}} \coqdocvar{N} \coqdocvar{P} : \coqdocinductive{objects}, \coqdocinductive{arrows\_assoc} \coqdocvariable{N} \coqdocvariable{P} \ensuremath{\rightarrow} \coqdocdefinition{normalize} \coqdocvariable{N} \coqdocnotation{=} \coqdocdefinition{normalize} \coqdocvariable{P}.\coqdoceol
+\end{coqdoccode}
+Aborted lemma\_coherence\_assoc0 : for local variables \coqdocvar{N}, \coqdocvar{P} with \coqdocvar{arrows\_assoc} \coqdocvar{N} \coqdocvar{P},
+although there is the propositional equality \coqdocvar{th260} : \coqdocvar{normalize} \coqdocvar{N} = \coqdocvar{normalize} \coqdocvar{P},
+one gets that \coqdocvar{normalize} \coqdocvar{N} and \coqdocvar{normalize} \coqdocvar{P} are not convertible (definitionally/meta equal);
+therefore some transport other than \coqdocvar{eq\_rect}, some coherent transport is lacked. 
+
+ Below \coqdocvar{directed} \coqdocvar{y} signify that \coqdocvar{y} is in the image of the embedding of \coqdocvar{arrows} into \coqdocvar{arrows\_assoc}. \begin{coqdoccode}
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Check} \coqdocdefinition{normalize\_aux\_map\_assoc} : \coqdockw{\ensuremath{\forall}} (\coqdocvar{X} \coqdocvar{Y} : \coqdocinductive{objects}) (\coqdocvar{x} : \coqdocinductive{arrows\_assoc} \coqdocvariable{X} \coqdocvariable{Y})\coqdoceol
+\coqdocindent{4.50em}
+(\coqdocvar{Z} : \coqdocinductive{objects}) (\coqdocvar{y} : \coqdocinductive{arrows\_assoc} \coqdocvariable{Y} \coqdocvariable{Z}), \coqdocinductive{directed} \coqdocvariable{y} \ensuremath{\rightarrow}\coqdoceol
+\coqdocindent{3.50em}
+\coqdockw{\ensuremath{\forall}} (\coqdocvar{A} \coqdocvar{B} : \coqdocinductive{objects}) (\coqdocvar{f} : \coqdocinductive{arrows\_assoc} \coqdocvariable{A} \coqdocvariable{B}),\coqdoceol
+\coqdocindent{3.50em}
+\coqdocnotation{\{} \coqdocvar{y\_map} \coqdocnotation{:} \coqdocinductive{arrows\_assoc} (\coqdocvariable{Y} \coqdocnotation{</\symbol{92}0} \coqdocvariable{A}) (\coqdocvariable{Z} \coqdocnotation{</\symbol{92}0} \coqdocvariable{B}) \coqdocnotation{\&}\coqdoceol
+\coqdocindent{3.50em}
+\coqdocnotation{(}\coqdocvar{y\_map} \coqdocnotation{<}\coqdocnotation{oa} \coqdocvariable{x} \coqref{coqpl.::x '</x5C1a' x}{\coqdocnotation{</\symbol{92}1}}\coqref{coqpl.::x '</x5C1a' x}{\coqdocnotation{a}} \coqdocvariable{A} \coqref{coqpl.::x 'x7Ea' x}{\coqdocnotation{\ensuremath{\sim}}}\coqref{coqpl.::x 'x7Ea' x}{\coqdocnotation{a}} \coqdocvariable{y} \coqref{coqpl.::x '</x5C1a' x}{\coqdocnotation{</\symbol{92}1}}\coqref{coqpl.::x '</x5C1a' x}{\coqdocnotation{a}} \coqdocvariable{B} \coqdocnotation{<}\coqdocnotation{oa} \coqdocvariable{x} \coqdocnotation{/\symbol{92}1}\coqdocnotation{a} \coqdocvariable{f}\coqdocnotation{)} \coqdocnotation{\ensuremath{\times}} \coqdocinductive{directed} \coqdocvar{y\_map} \coqdocnotation{\}}.\coqdoceol
+\coqdocemptyline
+\coqdocnoindent
+\coqdockw{Check} \coqdocdefinition{normalize\_map\_assoc} : \coqdockw{\ensuremath{\forall}} (\coqdocvar{A} \coqdocvar{B} : \coqdocinductive{objects}) (\coqdocvar{f} : \coqdocinductive{arrows\_assoc} \coqdocvariable{A} \coqdocvariable{B}),\coqdoceol
+\coqdocindent{3.50em}
+\coqdocnotation{\{} \coqdocvar{y\_map} \coqdocnotation{:} \coqdocinductive{arrows\_assoc} (\coqdocdefinition{normalize} \coqdocvariable{A}) (\coqdocdefinition{normalize} \coqdocvariable{B}) \coqdocnotation{\&}\coqdoceol
+\coqdocindent{3.50em}
+\coqdocnotation{(}\coqdocvar{y\_map} \coqdocnotation{<}\coqdocnotation{oa} \coqref{coqpl.normalize unitrefl assoc}{\coqdocabbreviation{normalize\_unitrefl\_assoc}} \coqdocvariable{A} \coqref{coqpl.::x 'x7Ea' x}{\coqdocnotation{\ensuremath{\sim}}}\coqref{coqpl.::x 'x7Ea' x}{\coqdocnotation{a}}\coqdoceol
+\coqdocindent{4.50em}
+\coqref{coqpl.normalize unitrefl assoc}{\coqdocabbreviation{normalize\_unitrefl\_assoc}} \coqdocvariable{B} \coqdocnotation{<}\coqdocnotation{oa} \coqdocvariable{f}\coqdocnotation{)} \coqdocnotation{\ensuremath{\times}} \coqdocinductive{directed} \coqdocvar{y\_map} \coqdocnotation{\}}.\coqdoceol
+\coqdocnoindent
+\coqdockw{Print} \coqdockw{Assumptions} \coqdocdefinition{normalize\_map\_assoc}.\coqdoceol
+\end{coqdoccode}
+\begin{verbatim}
+Closed under the global context
+\end{verbatim}
+\begin{coqdoccode}
+\end{coqdoccode}

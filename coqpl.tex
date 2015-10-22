@@ -1,0 +1,149 @@
+%% LyX 2.1.3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[twocolumn,english,natbib,nocopyrightspace]{sigplanconf}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage{url}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{pdftitle={MACLANE PENTAGON IS SOME RECURSIVE SQUARE , NOW WHAT ?},
+ pdfauthor={1337777.NET}}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% DO NOT ALTER THIS PREAMBLE!!!
+%
+% This preamble is designed to ensure that the file prints
+% out as advertised. If you mess with this preamble,
+% parts of this document may not print out as expected.  If you
+% have problems LaTeXing this file, please contact 
+% the documentation team
+% email: lyx-docs@lists.lyx.org
+
+\usepackage[all]{xy}
+
+% define new commands used in sec. 5.1
+\newcommand{\xyR}[1]{
+  \xydef@\xymatrixrowsep@{#1}}
+\newcommand{\xyC}[1]{
+  \xydef@\xymatrixcolsep@{#1}}
+
+\newdir{|>}{!/4.5pt/@{|}*:(1,-.2)@^{>}*:(1,+.2)@_{>}}
+
+% a pdf-bookmark for the TOC is added
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+  \pdfbookmark[1]{\contentsname}{}
+  \myTOC }
+
+% redefine the \LyX macro for PDF bookmarks
+\def\LyX{\texorpdfstring{%
+  L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+  {LyX}}
+
+% if pdflatex is used
+\usepackage{ifpdf}
+\ifpdf
+
+% set fonts for nicer pdf view
+\IfFileExists{lmodern.sty}
+ {\usepackage{lmodern}}{}
+
+\fi % end if pdflatex is used
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage{fullpage}
+
+\usepackage{coqdoc}
+\renewcommand{\coqdocind}[1]{\textsf{#1}}
+
+\usepackage{amsmath,amssymb}
+\usepackage{url}
+ \usepackage{hyperref}
+% \usepackage{makeidx,hyperref}
+
+\makeatother
+
+\begin{document}
+
+
+
+\conferenceinfo{GCC 1337}{January 13--31, 1337, Burgpeters, Dariflo, UAS.}
+
+
+\CopyrightYear{1337}
+
+
+\copyrightdata{1-59593-057-4/05/0004}
+
+
+\title{MACLANE PENTAGON IS SOME RECURSIVE SQUARE , NOW WHAT ?}
+
+
+\authorinfo{1337777.NET}{}{ HTTPS://GITHUB.COM/1337777}
+\maketitle
+\begin{abstract}
+This Coq text shows that Dosen semiassociative coherence covers Maclane
+associative coherence by some recursive adjunction, {$\text{embedding }:\ \text{SemiAssoc}\leftrightarrows\text{Assoc}\ :\text{ flattening reflection}$.
+} Now what ?
+\end{abstract}
+\category{F.4.1}{Mathematical Logic And Formal Languages}{Mechanical Theorem Proving}
+
+
+
+
+\keywords{Coq, Coherence, Comonadic descent, Automation}
+
+
+\section{Contents}
+
+\input{coqpl.v.tex}
+\begin{thebibliography}{10}
+\bibitem{gross}Jason Gross, Adam Chlipala, David I. Spivak. \textquotedblleft Experience
+Implementing a Performant Category-Theory Library in Coq\textquotedblright{}
+In: Interactive Theorem Proving. Springer, 2014.
+
+\bibitem{chlipala}Gregory Malecha, Adam Chlipala, Thomas Braibant.
+\textquotedblleft Compositional Computational Reflection\textquotedblright{}
+In: Interactive Theorem Proving. Springer, 2014.
+
+\bibitem{chlipalafiat}Benjamin Delaware, Clement Pit--Claudel, Jason
+Gross, Adam Chlipala. ``Fiat: Deductive Synthesis of Abstract Data
+Types in a Proof Assistant'' In: Principles of Programming Languages.
+ACM, 2015.
+
+\bibitem{chlipalaurweb}Adam Chlipala. ``Ur/Web: A Simple Model for
+Programming the Web'' In: Principles of Programming Languages. ACM,
+2015.
+
+\bibitem{1337777}1337777.org. ``1337777.org''\\
+\url{https://github.com/1337777/upo/}
+
+\bibitem{harper}Robert Harper. ``Programming in Standard ML''\\
+\url{http://www.cs.cmu.edu/~rwh/smlbook/}
+
+\bibitem{chlipalacpdt}Adam Chlipala. ``Certified Programming with
+Dependent Types''\\
+\url{http://adam.chlipala.net/cpdt/}
+
+\bibitem{dosen}Kosta Dosen, Zoran Petric. \textquotedblleft Proof-Theoretical
+Coherence\textquotedblright{} \\
+\url{http://www.mi.sanu.ac.rs/~kosta/coh.pdf} , 2007.
+
+\bibitem{aigner}Martin Aigner. ``Combinatorial Theory'' Springer,
+1997
+
+\bibitem{borceuxjanelidze}Francis Borceux, George Janelidze. \textquotedblleft Galois
+Theories\textquotedblright{} Cambridge University Press, 2001.
+
+\bibitem{borceux}Francis Borceux. \textquotedblleft Handbook of categorical
+algebra. Volumes 1 2 3\textquotedblright{} Cambridge University Press,
+1994.\end{thebibliography}
+
+\end{document}
